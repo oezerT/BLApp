@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">BLApp</string>
 
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
+    <string name="title_section1">Aktueller Spieltag</string>
+    <string name="title_section2">Tabelle</string>
+    <string name="title_section3">DFB-Pokal</string>
 
     <string name="hello_world">Hello world!</string>
 

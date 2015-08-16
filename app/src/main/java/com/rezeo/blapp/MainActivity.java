@@ -101,7 +101,15 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            switch (position) {
+                case 0:
+                    return GameDayOverviewFragment.newInstance();
+                case 1:
+                    return PlaceholderFragment.newInstance(position);
+                case 2:
+                    return PlaceholderFragment.newInstance(position);
+            }
+            return null;
         }
 
         @Override
@@ -154,8 +162,8 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+
             return rootView;
         }
     }
-
 }
