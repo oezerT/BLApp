@@ -2,8 +2,10 @@ package com.rezeo.blapp;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Locale;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -20,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class MainActivity extends AppCompatActivity implements ActionBar.TabListener {
@@ -44,11 +47,9 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ObjectMapper om = new ObjectMapper();
-        String currentDir = System.getProperty("user.dir");
-        System.out.println(currentDir);
         try {
-            GameDay gameDay = om.readValue(new File("C:\\Users\\mickmarz\\AndroidStudioProjects\\BLApp\\app\\src\\main\\java\\com\\rezeo\\blapp\\test.json"), GameDay.class);
-            for (Match match : gameDay.getMatches()) {
+            List<Match> matches= om.readValue(getResources().openRawResource(R.raw.test), new TypeReference<List<Match>>(){});
+            for (Match match : matches) {
                 System.out.println(match.getMatchId());
             }
 
