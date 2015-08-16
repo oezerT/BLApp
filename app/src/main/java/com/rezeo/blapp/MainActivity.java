@@ -1,5 +1,7 @@
 package com.rezeo.blapp;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Locale;
 
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +19,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class MainActivity extends AppCompatActivity implements ActionBar.TabListener {
 
@@ -39,7 +43,18 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ObjectMapper om = new ObjectMapper();
+        String currentDir = System.getProperty("user.dir");
+        System.out.println(currentDir);
+        try {
+            GameDay gameDay = om.readValue(new File("C:\\Users\\mickmarz\\AndroidStudioProjects\\BLApp\\app\\src\\main\\java\\com\\rezeo\\blapp\\test.json"), GameDay.class);
+            for (Match match : gameDay.getMatches()) {
+                System.out.println(match.getMatchId());
+            }
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
