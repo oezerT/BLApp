@@ -1,7 +1,5 @@
 package com.rezeo.blapp;
 
-import java.io.IOException;
-import java.util.List;
 import java.util.Locale;
 
 import android.support.v7.app.AppCompatActivity;
@@ -17,9 +15,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class MainActivity extends AppCompatActivity implements ActionBar.TabListener {
 
@@ -164,9 +159,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-
-            return rootView;
+            return inflater.inflate(R.layout.fragment_main, container, false);
         }
     }
 }

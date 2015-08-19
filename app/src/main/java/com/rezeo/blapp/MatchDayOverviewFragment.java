@@ -4,13 +4,9 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.Layout;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -23,8 +19,7 @@ import java.util.List;
 public class MatchDayOverviewFragment extends Fragment {
 
     public static MatchDayOverviewFragment newInstance() {
-        MatchDayOverviewFragment fragment = new MatchDayOverviewFragment();
-        return fragment;
+        return new MatchDayOverviewFragment();
     }
 
     public MatchDayOverviewFragment() {
