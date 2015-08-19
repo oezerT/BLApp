@@ -1,11 +1,9 @@
 package com.rezeo.blapp;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -14,13 +12,11 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -46,16 +42,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ObjectMapper om = new ObjectMapper();
-        try {
-            List<Match> matches= om.readValue(getResources().openRawResource(R.raw.test), new TypeReference<List<Match>>(){});
-            for (Match match : matches) {
-                System.out.println(match.getMatchId());
-            }
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -119,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch (position) {
                 case 0:
-                    return GameDayOverviewFragment.newInstance();
+                    return MatchDayOverviewFragment.newInstance();
                 case 1:
                     return PlaceholderFragment.newInstance(position);
                 case 2:

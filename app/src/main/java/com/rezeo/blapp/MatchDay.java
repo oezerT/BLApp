@@ -2,7 +2,7 @@ package com.rezeo.blapp;
 
 import java.util.List;
 
-public class GameDay {
+public class MatchDay {
 
     List<Match> matches;
 
